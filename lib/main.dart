@@ -1,6 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:admin/constants.dart';
-import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/controllers/MenuControllerr.dart';
 import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,31 +34,10 @@ class MyApp extends StatelessWidget {
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,
         home: MultiProvider(
-          providers: [
-            ChangeNotifierProvider(
-              create: (context) => MenuController(),
-            ),
+          providers: [ChangeNotifierProvider(create: (context) => MenuControllerr(),),
           ],
           child: MainScreen(),
         ),
-      ),
-    );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Admin Panel',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        canvasColor: secondaryColor,
-      ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: MainScreen(),
       ),
     );
   }
